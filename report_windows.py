@@ -6,7 +6,7 @@ names_list = "file.txt"
 output_file_name = "status.html"
 
 today=(datetime.datetime.now())
-now=today.strftime("%m/%d/%Y, %I:%M:%S")
+now=today.strftime("%m/%d/%Y, %H:%M:%S")
 
 #floats needed to determine accurate percentage
 servers_up=0.00
