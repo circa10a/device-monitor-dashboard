@@ -15,3 +15,5 @@ Python script to generate material design html report of servers' online/offline
 - Setup a web server
 - Install a new cron job to run the report periodically `python $path/to/project_directory/report.py &> /dev/null`
 - Set output path in python script to write out html report to web serving directory such as `/var/www/html`
+- BE SURE TO HAVE TO HAVE THE HTML FILE IN THE ROOT OF THE PROJECT DIRECTORY
+
