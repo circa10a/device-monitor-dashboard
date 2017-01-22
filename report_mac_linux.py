@@ -1,5 +1,3 @@
-#needed to determine OS to run the correct ping command
-from sys import platform
 import os
 
 #put the path to the file with your hostnames
@@ -17,12 +15,7 @@ with open(names_list, "r") as ins:
     array = []
     for servername in ins:
         array.append(servername)
-        if platform == "darwin":
-            response = os.system("ping -c 1 "+ servername)
-        elif platform == "linux":
-            response = os.system("ping -c 1 "+ servername)
-        elif platform =="windows":
-            response = os.system("ping -n 1 "+ servername)
+        response = os.system("ping -c 1 "+ servername)
         if response == 0:
             servers_up += 1
         else:
@@ -101,13 +94,8 @@ with open(names_list, "r") as ins:
     array = []
     for servername in ins:
         array.append(servername)
-        if platform == "darwin":
-            response = os.system("ping -c 1 "+ servername)
-        elif platform == "linux":
-            response = os.system("ping -c 1 "+ servername)
-        elif platform =="windows":
-            response = os.system("ping -n 1 "+ servername)
-
+        response = os.system("ping -c 1 "+ servername)
+            
         if response == 0:
             html_file.write("<tr>")
             html_file.write("\n")
