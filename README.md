@@ -2,8 +2,8 @@
 Python script to generate material design html report of servers' online/offline status. A cheap/fun monitoring solution.
 
 ##Screenshots
-![alt text](http://i.imgur.com/fDMUnRe.png)
-![alt text](http://i.imgur.com/GTHiU7f.png)
+![alt text](http://i.imgur.com/jDvD3Tz.png)
+![alt text](http://i.imgur.com/NYD6UG6.png)
 
 ## Steps
 - Have a text file with hostnames (no whitespace)
