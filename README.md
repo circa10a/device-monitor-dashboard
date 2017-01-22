@@ -1,9 +1,9 @@
 # server-status-web
-Python script to generate material design html report of servers' online/offline status
+Python script to generate material design html report of servers' online/offline status. A cheap/fun monitoring solution.
 
 ##Screenshots
-![alt text](http://imgur.com/fDMUnRe)
-![alt text](http://imgur.com/GTHiU7f)
+![alt text](http://i.imgur.com/fDMUnRe.png)
+![alt text](http://i.imgur.com/GTHiU7f.png)
 
 ## Steps
 - Have a text file with hostnames (no whitespace)
@@ -15,4 +15,3 @@ Python script to generate material design html report of servers' online/offline
 - Setup a web server
 - Install a new cron job to run the report periodically `python $path/to/project_directory/report.py &> /dev/null`
 - Set output path in python script to write out html report to web serving directory such as `/var/www/html`
-
