@@ -6,7 +6,7 @@ names_list = "file.txt"
 output_file_name = "status.html"
 
 today=(datetime.datetime.now())
-now=today.strftime("%m/%d/%Y, %H:%M:%S")
+now=today.strftime("%m/%d/%Y %H:%M:%S")
 
 #floats needed to determine accurate percentage
 servers_up=0.00
@@ -70,7 +70,7 @@ html_file.write("</script>")
 html_file.write("\n")
 html_file.write("<script type=\"text/javascript\" src=\"js/notifications.js\"></script>")
 html_file.write("\n")
-html_file.write("<script>noty({text: \"Report created " + now +"\" type: \'information\'});</script>")
+html_file.write("<script>noty({text: \"Report created " + now +"\" ,type: \'information\'});</script>")
 html_file.write("\n")
 html_file.write("<body>")
 html_file.write("\n")
