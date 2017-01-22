@@ -6,14 +6,15 @@
 <script type="text/javascript" src="js/jquery.noty.packaged.min.js"></script>
 </head>
 <body>
-<div id="circle"></div>
+<div id="circle"><strong></strong></div>
 <script>
 $('#circle').circleProgress({
-value: 0.75,
+value: 0.5,
 size: 350,
 thickness: 10,
 emptyFill: "#262b33",
-fill: { color: ["#0277BD"]}});
+fill: { color: ["#0277BD"]}
+}).on('circle-animation-progress', function(event, progress, stepValue) {$(this).children('strong').text((stepValue * 100).toFixed(0) + '%');});
 </script>
 <script type="text/javascript" src="js/notifications.js"></script>
 <body>
@@ -28,6 +29,14 @@ fill: { color: ["#0277BD"]}});
 </tr>
 </thead>
 <tbody class="table-hover"><tr>
+<td class="text-left">Testserver1
+</td>
+<td class="red">Offline</td>
+</tr><tr>
+<td class="text-left">Testserver2
+</td>
+<td class="red">Offline</td>
+</tr><tr>
 <td class="text-left">www.google.com
 </td>
 <td class="green">Online</td>
@@ -35,14 +44,6 @@ fill: { color: ["#0277BD"]}});
 <td class="text-left">www.apple.com
 </td>
 <td class="green">Online</td>
-</tr><tr>
-<td class="text-left">localhost
-</td>
-<td class="green">Online</td>
-</tr><tr>
-<td class="text-left">test-1
-</td>
-<td class="red">Offline</td>
 </tr>
 </tbody>
 </table>
