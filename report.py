@@ -51,20 +51,20 @@ f = open(output_file_name, "r+")
 f.writelines([l for l in open(template_file).readlines()])
 f.close()
 
-#fill in "servers_percent"
-f = open(output_file_name, "r+")
-content = f.read()
-f.seek(0)
-f.truncate()
-f.write(content.replace("#SERVERSPERCENT", servers_percent))
-f.close()
-
 #fill in "refresh_rate"
 f = open(output_file_name, "r+")
 content = f.read()
 f.seek(0)
 f.truncate()
 f.write(content.replace("#REFRESHRATE", refresh_rate))
+f.close()
+
+#fill in "servers_percent"
+f = open(output_file_name, "r+")
+content = f.read()
+f.seek(0)
+f.truncate()
+f.write(content.replace("#SERVERSPERCENT", servers_percent))
 f.close()
 
 #fill in "now"
