@@ -16,6 +16,9 @@ output_file_name = "status.html"
 #html template
 template_file = "template/template.html"
 
+#How many seconds to refresh the page
+refresh_rate = "60"
+
 #Determine time for timestamp
 today = (datetime.datetime.now())
 now = today.strftime("%m/%d/%Y %H:%M:%S")
@@ -46,6 +49,14 @@ f.close()
 #write static lines from html file
 f = open(output_file_name, "r+")
 f.writelines([l for l in open(template_file).readlines()])
+f.close()
+
+#fill in "refresh_rate"
+f = open(output_file_name, "r+")
+content = f.read()
+f.seek(0)
+f.truncate()
+f.write(content.replace("#REFRESHRATE", refresh_rate))
 f.close()
 
 #fill in "servers_percent"
