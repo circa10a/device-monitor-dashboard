@@ -2,10 +2,13 @@ import os
 import datetime
 
 #put the path to the file with your hostnames
-names_list = "file.txt"
+names_list = "hostnames.txt"
 
 #put the path that you would like the report to be written to
 output_file_name = "status.html"
+
+#html template
+template_file = "template/template.html"
 
 today = (datetime.datetime.now())
 now = today.strftime("%m/%d/%Y %H:%M:%S")
@@ -35,7 +38,7 @@ f.close()
 
 #write static lines from html file
 f = open(output_file_name, "r+")
-f.writelines([l for l in open("report.html").readlines()])
+f.writelines([l for l in open(template_file).readlines()])
 f.close()
 
 #fill in "servers_percent"
