@@ -1,0 +1,34 @@
+<html>
+<head>
+	<link rel="stylesheet" href="css/styles.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/circle-progress.js"></script>
+	<script type="text/javascript" src="js/jquery.noty.packaged.min.js"></script>
+</head>
+<body>
+	<div id="circle"><strong></strong></div>
+
+	<script>
+	$('#circle').circleProgress({
+		value: "#SERVERSPERCENT",
+		size: 350,
+		thickness: 10,
+		emptyFill: "#262b33",
+		fill: { color: ["#0277BD"]}
+	}).on('circle-animation-progress', function(event, progress, stepValue) {$(this).children('strong').text((stepValue * 100).toFixed(0) + '%');});
+	</script>
+	<script type="text/javascript" src="js/notifications.js"></script>
+	<script>noty({text: "Report created " + "#NOW", type: 'information'});</script>
+
+	<div class="table-title">
+		<h3></h3>
+	</div>
+
+	<table class="table-fill">
+	<thead>
+		<tr>
+		<th class="text-left">Server</th>
+		<th class="text-left">Status</th>
+		</tr>
+	</thead>
+	<tbody class="table-hover">
