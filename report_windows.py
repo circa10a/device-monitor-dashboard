@@ -1,5 +1,10 @@
-#This script runs on windows
+#!/usr/bin/python
+
+#This script runs on mac/linux/unix
+
+#os needed for ping command
 import os
+#datetime needed for timestamps
 import datetime
 
 #put the path to the file with your hostnames
@@ -11,6 +16,7 @@ output_file_name = "status.html"
 #html template
 template_file = "template/template.html"
 
+#Determine time for timestamp
 today = (datetime.datetime.now())
 now = today.strftime("%m/%d/%Y %H:%M:%S")
 
@@ -19,7 +25,7 @@ servers_up = 0.00
 servers_down = 0.00
 servers_percent = 0.00
 
-#this section determines which command to run and the count of how many servers are online
+#this section pings the servers in the list and determines on/offline status
 with open(names_list, "r") as ins:
     array = []
     for servername in ins:
