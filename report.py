@@ -1,3 +1,4 @@
+#This script runs on mac/linux/unix
 import os
 import datetime
 
