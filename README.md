@@ -3,8 +3,8 @@ Python script to generate material design html report of devices' online/offline
 This can be used for for servers, networking equipment, IOT devices, anything that's "pingable".  
 
 ##Screenshots
-![alt text](http://i.imgur.com/21lF9tC.png)
-![alt text](http://i.imgur.com/PY1DsXD.png)
+![alt text](http://i.imgur.com/GWjdckj.png)
+![alt text](http://i.imgur.com/GQPRwjn.png)
 
 ## Usage
 - Have a text file with hostnames or ip addresses
