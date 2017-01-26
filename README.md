@@ -1,6 +1,6 @@
 # server-status-web
-Python script to generate material design html report of servers' online/offline status. A cheap/fun reporting solution.
-This can be used for for servers, networking equipment, anything that's "pingable".  
+Python script to generate material design html report of devices' online/offline status. A cheap/fun reporting solution.
+This can be used for for servers, networking equipment, IOT devices, anything that's "pingable".  
 
 ##Screenshots
 ![alt text](http://i.imgur.com/21lF9tC.png)
