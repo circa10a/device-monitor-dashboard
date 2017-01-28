@@ -5,6 +5,7 @@ This can be used for for servers, networking equipment, IOT devices, anything th
 ## Easy Install
 `curl -sL https://raw.githubusercontent.com/circa10a/Device-Monitor-Dashboard/master/install.sh > install.sh && bash install.sh`
 - Apache and Python required for Easy Install
+- Tested with Ubuntu 16.04 / Apache 2.4.7 / Python 2.7
 - Follow the prompts!
 
 ##Screenshots
