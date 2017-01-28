@@ -70,22 +70,22 @@ echo
 read input
   if [ "$input" == "y" ]; then
   	(crontab -l 2>/dev/null; echo "*/15 * * * * cd $apachedir/$project/ && /usr/bin/python report.py &> /dev/null") | crontab -
-		echo
-		echo "Crontab installed"
-		echo
-		sleep 3
-		echo "Check it out"
-		crontab -l
-		sleep 6
-		echo
+	echo
+	echo "Crontab installed"
+	echo
+	sleep 3
+	echo "Check it out"
+	crontab -l
+	sleep 6
+	echo
   elif [ "$input" == "n" ]; then
-	 echo "OK, suit yourself. All done"
-	 sleep 2
-	 echo
-	 echo "Exiting..."
+	echo "OK, suit yourself. All done"
+	sleep 2
+	echo
+	echo "Exiting..."
  else
-	 echo "Unrecognized input. Bye"
-	 exit 1
+	echo "Unrecognized input. Bye"
+	exit 1
 fi
 echo "You're all set! Installation Completed successfully"
 echo
