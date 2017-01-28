@@ -91,3 +91,4 @@ echo "You're all set! Installation Completed successfully"
 echo
 echo "If you set up Cron, your web page will be ready in 15 minutes"
 echo "You can access your dashboard at http://$(ifconfig eth0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://')/monitor"
+echo "You an also update the devices you would like to monitor by editing $apachedir/$project/hostnames.txt"
