@@ -11,7 +11,7 @@ import datetime
 names_list = "hostnames.txt"
 
 #put the path that you would like the report to be written to
-output_file_name = "status.html"
+output_file_name = "index.html"
 
 #html template
 template_file = "template/template.html"
