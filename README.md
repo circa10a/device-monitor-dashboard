@@ -2,6 +2,11 @@
 Python script to generate material design html report of devices' online/offline status. A cheap/fun reporting solution.
 This can be used for for servers, networking equipment, IOT devices, anything that's "pingable".  
 
+## Easy Install
+`curl -sL https://raw.githubusercontent.com/circa10a/Device-Monitor-Dashboard/master/install.sh > install.sh && bash install.sh`
+- Apache and Python required for Easy Install
+- Follow the prompts!
+
 ##Screenshots
 ![alt text](http://i.imgur.com/GWjdckj.png)
 ![alt text](http://i.imgur.com/GQPRwjn.png)
