@@ -86,10 +86,10 @@ with open(names_list, "r") as ins:
         if response == 0:
             html_file.write("\n		<tr>\n")
             html_file.write("		<td class=\"text-left\">" + (servername) + "</td>")
-            html_file.write("\n		<td class=\"green\">Online</td>\n		</tr>")
+            html_file.write("\n		<td><div class=\"led-green\"></div></td>")
         else:
             html_file.write("\n		<tr>\n")
             html_file.write("		<td class=\"text-left\">" + (servername) + "</td>")
-            html_file.write("\n		<td class=\"red\">Offline</td>\n		</tr>")
+            html_file.write("\n		<td><div class=\"led-red\"></div></td>")
 
 html_file.write('\n	</tbody>\n	</table>\n</body>\n</html>')

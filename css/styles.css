@@ -159,11 +159,21 @@ td.text-center {
 td.text-right {
   text-align: right;
 }
-.red {
-  color: red;
+
+.led-green {
+    margin: 5px auto;
+    width: 12px;
+    height: 12px;
+    background-color: #4CAF50;
+    border-radius: 50%;
 }
-.green{
-  color:green;
+
+.led-red {
+    margin: 5px auto;
+    width: 12px;
+    height: 12px;
+    background-color: #ea5660;
+    border-radius: 50%;
 }
 /* cyrillic-ext */
 @font-face {
