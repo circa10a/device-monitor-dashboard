@@ -9,8 +9,8 @@ This can be used for for servers, networking equipment, IOT devices, anything th
 - Follow the prompts!
 
 ##Screenshots
-![alt text](http://i.imgur.com/GWjdckj.png)
-![alt text](http://i.imgur.com/GQPRwjn.png)
+![alt text](http://i.imgur.com/7u5LWzp.png)
+![alt text](http://i.imgur.com/G3v45uY.png)
 
 ## Usage
 - Have a text file with hostnames or ip addresses
