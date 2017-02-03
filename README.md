@@ -17,7 +17,7 @@ This can be used for for servers, networking equipment, IOT devices, anything th
 
 ## Usage
 - Have a text file with hostnames or ip addresses
-- Update the python script (variable at the top) with the path/name of your file with hostnames and output file path.(default hostames= file.txt   default output= index.html)
+- Update the python script (variable at the top) with the path/name of your file with hostnames and output file path.(default hostames= hostnames.txt   default output= index.html)
 - Run `python report.py'
 - Ensure that you place the output HTML file in the project directory so it can find its web dependencies
 
