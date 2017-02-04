@@ -47,7 +47,6 @@ fi
 echo "Cloning project in 5 seconds"
 echo
 sleep 5
-sleep 3
 git clone $gitproject $workdir/$project
 echo
 
@@ -83,7 +82,7 @@ read input
 	echo
 	echo "Crontab installed"
 	echo
-	sleep 3
+	sleep 5
 	echo "Check it out"
 	crontab -l
 	sleep 5
@@ -205,7 +204,7 @@ echo "IOT-Monitor-Dashboard install script has started successfully"
 echo
 echo "Either Node.js/Apache and Python are requirements to deploy IOT-Monitor-Dashboard"
 echo
-sleep 3
+sleep 5
 echo "Would you like to deploy with Node.js or Apache?"
 echo "Enter \"n\" for Node or \"a\" for Apache."
 
