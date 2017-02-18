@@ -8,7 +8,7 @@ import os
 import datetime
 
 #put the path to the file with your hostnames
-names_list = "hostnames.txt"
+names_list = "./hostnames.txt"
 
 #put the path that you would like the report to be written to
 output_file_name = "index.html"
