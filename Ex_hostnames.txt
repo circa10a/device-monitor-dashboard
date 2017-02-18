@@ -1,5 +1,0 @@
-Testserver1
-Testrouter2
-Testswitch3
-www.google.com
-www.apple.com
