@@ -73,11 +73,11 @@ else
 fi
 
 echo
-echo "Would you like to setup a cronjob that runs the monitor every 15 minutes? (y/n)"
+echo "Would you like to setup a cronjob that runs the monitor every 5 minutes? (y/n)"
 echo
 read input
   if [ "$input" == "y" ]; then
-  	(crontab -l 2>/dev/null; echo "*/15 * * * * cd $workdir/$project/ && /usr/bin/python report.py &> /dev/null") | crontab -
+  	(crontab -l 2>/dev/null; echo "*/5 * * * * cd $workdir/$project/ && /usr/bin/python report.py &> /dev/null") | crontab -
     (crontab -l 2>/dev/null; echo "@reboot cd $workdir/$project/ && http-server . -s & &> /dev/null") | crontab -
 	echo
 	echo "Crontab installed"
@@ -168,11 +168,11 @@ else
 fi
 
 echo
-echo "Would you like to setup a cronjob that runs the monitor every 15 minutes? (y/n)"
+echo "Would you like to setup a cronjob that runs the monitor every 5 minutes? (y/n)"
 echo
 read input
   if [ "$input" == "y" ]; then
-  	(crontab -l 2>/dev/null; echo "*/15 * * * * cd $apachedir/$project/ && /usr/bin/python report.py &> /dev/null") | crontab -
+  	(crontab -l 2>/dev/null; echo "*/5 * * * * cd $apachedir/$project/ && /usr/bin/python report.py &> /dev/null") | crontab -
 	echo
 	echo "Crontab installed"
 	echo
