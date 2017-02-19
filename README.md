@@ -14,11 +14,11 @@ This can be used for for servers, networking equipment, IOT devices, anything th
 - Follow the prompts!
 
 ## Docker!
-`git clone https://github.com/circa10a/Device-Monitor-Dashboard.git`   
-`cd Device-Monitor-Dashboard`  
-Then Edit your hostnames.txt file add your website, servers, switched, devices, etc.  
- `docker build -t myrepo/monitor .`  
- `docker run --name device-monitor -d -p 80:80 myrepo/monitor`   
+1) `git clone https://github.com/circa10a/Device-Monitor-Dashboard.git`   
+2) `cd Device-Monitor-Dashboard`  
+3) Edit your hostnames.txt file add your website, servers, switched, devices, etc.  
+4) `docker build -t myrepo/monitor .`  
+5) `docker run --name device-monitor -d -p 80:80 myrepo/monitor`   
 
 ##Screenshots
 ![alt text](http://i.imgur.com/BSsRnMK.png)
