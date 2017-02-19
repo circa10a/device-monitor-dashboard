@@ -3,6 +3,7 @@ Python script to generate material design html report of devices' online/offline
 This can be used for for servers, networking equipment, IOT devices, anything that's "pingable".  
 
 ## Changelog
+-  (2/18/17) Added support to build custom docker container
  - (2/4/17) Easy Install script now supports Node.js, update wheel color
  - (2/3/17) Change status from online/offline text to colored orb indicators
 
