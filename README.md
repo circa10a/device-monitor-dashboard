@@ -13,6 +13,13 @@ This can be used for for servers, networking equipment, IOT devices, anything th
 - Tested with Ubuntu 16.04 / Apache 2.4.18 / Node.js 4 / Python 2.7
 - Follow the prompts!
 
+## Docker!
+`git clone https://github.com/circa10a/Device-Monitor-Dashboard.git`   
+`cd Device-Monitor-Dashboard`  
+Then Edit your hostnames.txt file add your website, servers, switched, devices, etc.  
+ `docker build -t myrepo/monitor .`  
+ `docker run --name device-monitor -d -p 80:80 myrepo/monitor`   
+
 ##Screenshots
 ![alt text](http://i.imgur.com/BSsRnMK.png)
 ![alt text](http://i.imgur.com/pmftLDo.png)
