@@ -2,10 +2,11 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<META HTTP-EQUIV="refresh" CONTENT="#REFRESHRATE">
+	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/styles.css">
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/circle-progress.js"></script>
-	<script type="text/javascript" src="js/jquery.noty.packaged.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/circle-progress/circle-progress.min.js"></script>
+	<script type="text/javascript" src="js/noty/packaged/jquery.noty.packaged.min.js"></script>
 </head>
 <body>
 	<div id="circle"><strong></strong></div>
@@ -15,11 +16,25 @@
 		size: 350,
 		thickness: 10,
 		emptyFill: "#262b33",
-		fill: { color: ["rgb(59, 173, 214)"]}
+		fill: { color: ["#1BA1E2"]}
 	}).on('circle-animation-progress', function(event, progress, stepValue) {$(this).children('strong').text((stepValue * 100).toFixed(0) + '%');});
 	</script>
 	<script type="text/javascript" src="js/notifications.js"></script>
-	<script>noty({text: "Report created " + "#NOW", type: 'information'});</script>
+	<script>
+	noty({
+		text: "Report created " + "#NOW",
+		type: 'information',
+		theme: 'metroui',
+		closeWith   : ['click'],
+		progressBar : true,
+		timeout     : 30000,
+		animation   : {
+											open  : 'animated bounceInRight',
+											close : 'animated bounceOutRight',
+											easing: 'swing',
+									}
+	});
+		</script>
 
 	<div class="table-title">
 		<h3></h3>
@@ -33,4 +48,3 @@
 		</tr>
 	</thead>
 	<tbody class="table-hover">
-	
