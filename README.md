@@ -3,6 +3,7 @@ Python script to generate material design html report of devices' online/offline
 This can be used for for servers, networking equipment, IOT devices, anything that's "pingable".  
 
 ## Changelog
+ - (2/20/17) Updated noty,jquery, notifications UI
  - (2/18/17) Added support to build custom docker container
  - (2/4/17) Easy Install script now supports Node.js, update wheel color
  - (2/3/17) Change status from online/offline text to colored orb indicators
@@ -21,8 +22,8 @@ This can be used for for servers, networking equipment, IOT devices, anything th
 5) `docker run --name device-monitor -d -p 80:80 myrepo/monitor`   
 
 ##Screenshots
-![alt text](http://i.imgur.com/BSsRnMK.png)
-![alt text](http://i.imgur.com/pmftLDo.png)
+![alt text](http://i.imgur.com/7r8lPiH.png)
+![alt text](http://i.imgur.com/RdjDbMu.png)
 
 ## Usage
 - Have a text file with hostnames or ip addresses
