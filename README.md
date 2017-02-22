@@ -1,6 +1,7 @@
 # Device-Monitor-Dashboard
 Python script to generate material design html report of devices' online/offline status. A cheap/fun reporting solution.
 This can be used for for servers, networking equipment, IOT devices, anything that's "pingable".  
+Live Demo: https://circa10a.github.io/monitor/ 
 
 ## Changelog
  - (2/20/17) Updated noty,jquery, notifications UI, mobile UI
