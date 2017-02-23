@@ -29,7 +29,7 @@ Live Demo: https://circa10a.github.io/monitor/
 ## Usage
 - Have a text file with hostnames or ip addresses
 - Update the python script (variable at the top) with the path/name of your file with hostnames and output file path.(default hostames= hostnames.txt   default output= index.html)
-- Run `python report.py'
+- Run `python report.py`
 - Ensure that you place the output HTML file in the project directory so it can find its web dependencies
 
 ## Automation
