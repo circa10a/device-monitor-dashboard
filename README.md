@@ -25,8 +25,8 @@ Live Demo: https://circa10a.github.io/monitor/
 Known issue: Docker for Mac pings any address and returns success giving false results.
 
 ##Screenshots
-![alt text](http://i.imgur.com/7r8lPiH.png)
-![alt text](http://i.imgur.com/RdjDbMu.png)
+![alt text](http://i.imgur.com/8BjmGyO.png)
+![alt text](http://i.imgur.com/iRNNMkV.png)
 
 ## Usage
 - Have a text file with hostnames or ip addresses (optional: if port is desired seperate by comma. example: www.google.com, 80)
