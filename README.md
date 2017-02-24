@@ -20,7 +20,8 @@ Live Demo: https://circa10a.github.io/monitor/
 2) `cd Device-Monitor-Dashboard`  
 3) Edit your hostnames.txt file add your website, servers, switched, devices, etc.  
 4) `docker build -t myrepo/monitor .`  
-5) `docker run --name device-monitor -d -p 80:80 myrepo/monitor`   
+5) `docker run --name device-monitor -d -p 80:80 myrepo/monitor`   
+
 Known Issue: Docker for Mac returns pings from any address giving false readings.
 
 ##Screenshots
