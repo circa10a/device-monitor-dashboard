@@ -121,7 +121,7 @@ def createhtml(output_file_name, template_file, host_dict):
             html_file.write("\n		<td><div class=\"led-green\"></div></td>")
         else:
             html_file.write("\n		<tr>\n")
-            html_file.write("		<td class=\"text-left\">" + (h["hostname"]) + "</td>")
+            html_file.write("		<td class=\"text-left\">" + h["hostname"] + " port: " + str(h["port"]) + "</td>")
             html_file.write("\n		<td><div class=\"led-red\"></div></td>")
     html_file.write('\n	</tbody>\n	</table>\n</body>\n</html>')
 
