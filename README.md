@@ -18,7 +18,7 @@ Live Demo: https://circa10a.github.io/monitor/
 ## Docker!
 1) `git clone https://github.com/circa10a/Device-Monitor-Dashboard.git`   
 2) `cd Device-Monitor-Dashboard`  
-3) Edit your hostnames.txt file add your website, servers, switched, devices, etc.  
+3) Edit your hostnames.txt file add your website, servers, switches, devices, etc.  
 4) `docker build -t myrepo/monitor .`  
 5) `docker run --name device-monitor -d -p 80:80 myrepo/monitor`   
 
