@@ -1,9 +1,10 @@
 # Device-Monitor-Dashboard
 Python script to generate material design html report of devices' online/offline status. A cheap/fun reporting solution.
-This can be used for for servers, networking equipment, IOT devices, anything that's "pingable".  
-Live Demo: https://circa10a.github.io/monitor/ 
+This can be used for for servers, networking equipment, IOT devices, anything that's "pingable".
+Live Demo: https://circa10a.github.io/monitor/
 
 ## Changelog
+ - (2/24/17) Combined ping function to single file, added ability to check other ports. Also converted script to by more in line with python norms
  - (2/20/17) Updated noty,jquery, notifications UI, mobile UI
  - (2/18/17) Added support to build custom docker container
  - (2/4/17) Easy Install script now supports Node.js, update wheel color
@@ -16,18 +17,18 @@ Live Demo: https://circa10a.github.io/monitor/
 - Follow the prompts!
 
 ## Docker!
-1) `git clone https://github.com/circa10a/Device-Monitor-Dashboard.git`   
-2) `cd Device-Monitor-Dashboard`  
-3) Edit your hostnames.txt file add your website, servers, switched, devices, etc.  
-4) `docker build -t myrepo/monitor .`  
-5) `docker run --name device-monitor -d -p 80:80 myrepo/monitor`   
+1) `git clone https://github.com/circa10a/Device-Monitor-Dashboard.git`
+2) `cd Device-Monitor-Dashboard`
+3) Edit your hostnames.txt file add your website, servers, switched, devices, etc.
+4) `docker build -t myrepo/monitor .`
+5) `docker run --name device-monitor -d -p 80:80 myrepo/monitor`  
 
 ##Screenshots
 ![alt text](http://i.imgur.com/7r8lPiH.png)
 ![alt text](http://i.imgur.com/RdjDbMu.png)
 
 ## Usage
-- Have a text file with hostnames or ip addresses
+- Have a text file with hostnames or ip addresses (optional: if port is desired seperate by comma. example: www.google.com, 80)
 - Update the python script (variable at the top) with the path/name of your file with hostnames and output file path.(default hostames= hostnames.txt   default output= index.html)
 - Run `python report.py`
 - Ensure that you place the output HTML file in the project directory so it can find its web dependencies

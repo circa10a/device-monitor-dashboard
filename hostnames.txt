@@ -1,4 +1,4 @@
-www.github.com
-www.reddit.com
+www.github.com,80
+www.reddit.com, 443
 www.google.com
 www.apple.com
