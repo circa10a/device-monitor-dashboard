@@ -9,7 +9,7 @@ RUN apk add --no-cache python && \
 WORKDIR /usr/local/apache2/htdocs/
 #Delete existing files to be able to clone
 RUN rm -f /usr/local/apache2/htdocs/index.html
-#Clone Project
+#Copy Source Files
 COPY . /usr/local/apache2/htdocs
 #Create Cron Job
 RUN (crontab -l 2>/dev/null; echo "*/5 * * * * cd /usr/local/apache2/htdocs/ && /usr/bin/python report.py &> /dev/null") | crontab - && \
