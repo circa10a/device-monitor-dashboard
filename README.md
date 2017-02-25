@@ -17,7 +17,7 @@ Live Demo: https://circa10a.github.io/monitor/
 - Follow the prompts!
 
 ## Docker!
-1) `git clone https://github.com/circa10a/Device-Monitor-Dashboard.git' 
+1) `git clone https://github.com/circa10a/Device-Monitor-Dashboard.git` 
 
 2) `cd Device-Monitor-Dashboard`   
 
