@@ -30,16 +30,3 @@ if (value >= 1.0){
 
   });
  }
- noty({
-   text: "Report created " + "NOW",
-   type: 'information',
-   theme: 'metroui',
-   closeWith   : ['click'],
-   progressBar : true,
-   timeout     : 15000,
-   animation   : {
-     open  : 'animated bounceInRight',
-     close : 'animated bounceOutRight',
-     easing: 'swing',
-   }
- });
