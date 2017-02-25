@@ -2,9 +2,9 @@
 
 import os
 import datetime
-import socket
 import sys
 import platform
+import socket
 
 def pinghost(hostname):
 
@@ -30,9 +30,8 @@ def checksock(hostname, port):
         except:
             print 'Port number is not numeric!'
             sys.exit()
-    s = socket.socket()
     try:
-        r = s.connect((hostname, port))
+        r = socket.create_connection((hostname, port), 2)
         return True
     except socket.error as e:
         print '%s failed on port: %s' % (hostname, str(port))
