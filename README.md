@@ -4,7 +4,7 @@ This can be used for for servers, networking equipment, IOT devices, anything th
 Live Demo: https://circa10a.github.io/monitor/
 
 ## Changelog
- - (2/24/17) Combined ping function to single file, added ability to check other ports. Also converted script to by more in line with python norms
+ - (2/24/17) Combined ping function to single file, added ability to check other ports. Also converted script to by more in line with python norms. Table rows now act as hyperlinks to address listed and will auto detect port if specified.
  - (2/20/17) Updated noty,jquery, notifications UI, mobile UI
  - (2/18/17) Added support to build custom docker container
  - (2/4/17) Easy Install script now supports Node.js, update wheel color
