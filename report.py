@@ -2,9 +2,9 @@
 
 import os
 import datetime
-import socket
 import sys
 import platform
+import socket
 
 def pinghost(hostname):
 
@@ -30,9 +30,8 @@ def checksock(hostname, port):
         except:
             print 'Port number is not numeric!'
             sys.exit()
-    s = socket.socket()
     try:
-        r = s.connect((hostname, port))
+        r = socket.create_connection((hostname, port), 2)
         return True
     except socket.error as e:
         print '%s failed on port: %s' % (hostname, str(port))
@@ -119,6 +118,10 @@ def createhtml(output_file_name, template_file, host_dict):
             html_file.write("\n		<tr>\n")
             html_file.write("		<td class=\"text-left\">" + (h["hostname"]) + "</td>")
             html_file.write("\n		<td><div class=\"led-green\"></div></td>")
+        elif h["status"] == "down" and h["port"] != None:
+            html_file.write("\n		<tr>\n")
+            html_file.write("		<td class=\"text-left\">" + h["hostname"] + " port: " + str(h["port"]) + "</td>")
+            html_file.write("\n		<td><div class=\"led-red\"></div></td>")
         else:
             html_file.write("\n		<tr>\n")
             html_file.write("		<td class=\"text-left\">" + (h["hostname"]) + "</td>")
