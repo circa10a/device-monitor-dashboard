@@ -20,22 +20,8 @@
 		fill: { color: ["#1BA1E2"]}
 	}).on('circle-animation-progress', function(event, progress, stepValue) {$(this).children('strong').text((stepValue * 100).toFixed(0) + '%');});
 	</script>
+	<script type="text/javascript" src="js/circlesize.js"></script>
 	<script type="text/javascript" src="js/notifications.js"></script>
-	<script>
-	noty({
-		text: "Report created " + "#NOW",
-		type: 'information',
-		theme: 'metroui',
-		closeWith   : ['click'],
-		progressBar : true,
-		timeout     : 15000,
-		animation   : {
-			open  : 'animated bounceInRight',
-			close : 'animated bounceOutRight',
-			easing: 'swing',
-	  }
-	});
-		</script>
 
 	<div class="table-title">
 	<h3></h3>

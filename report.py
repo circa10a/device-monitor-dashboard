@@ -61,7 +61,7 @@ def parsehost(hostfile):
                 servers.append({"hostname":servername, "port":None})
     return servers
 
-def createhtml(output_file_name, template_file, host_dict):
+def createhtml(output_file_name, template_file, notifications_file, host_dict):
 
     refresh_rate = "60"
     today = (datetime.datetime.now())
@@ -102,7 +102,7 @@ def createhtml(output_file_name, template_file, host_dict):
     f.close()
 
     # fill in "now"
-    f = open(output_file_name, "r+")
+    f = open(notifications_file, "r+")
     content = f.read()
     f.seek(0)
     f.truncate()
@@ -135,7 +135,7 @@ def main():
     output_file_name = "index.html"
     # html template
     template_file = "template/template.html"
-
+    notifications_file = "js/notifications.js"
     hosts = parsehost(names_list)
     for h in hosts:
         if h["port"] != None:
@@ -146,7 +146,7 @@ def main():
             h.update(status="up")
         else:
             h.update(status="down")
-    createhtml(output_file_name, template_file, hosts)
+    createhtml(output_file_name, template_file, notifications_file, hosts)
 
 
 if __name__ == "__main__":
