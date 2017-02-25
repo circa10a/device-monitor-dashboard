@@ -31,7 +31,7 @@ if (value >= 1.0){
   });
  }
  noty({
-   text: "Report created " + "02/25/2017 14:06:38",
+   text: "Report created " + "NOW",
    type: 'information',
    theme: 'metroui',
    closeWith   : ['click'],
