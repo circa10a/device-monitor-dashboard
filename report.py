@@ -113,15 +113,19 @@ def createhtml(output_file_name, template_file, host_dict):
     for h in host_dict:
         if h["status"] == "up" and h["port"] != None:
             html_file.write("\n		<tr>\n")
-            html_file.write("		<td class=\"text-left\">" + h["hostname"] + " port: " + str(h["port"]) + "</td>")
+            html_file.write("		<td onClick=\"window.open(\'http://" + (h["hostname"]) + ":" + str(h["port"]) + "\')\";" + "class=\"text-left\">" + (h["hostname"]) + " port: " + str(h["port"]) + "</td>")
             html_file.write("\n		<td><div class=\"led-green\"></div></td>")
         elif h["status"] == "up":
             html_file.write("\n		<tr>\n")
-            html_file.write("		<td class=\"text-left\">" + (h["hostname"]) + "</td>")
+            html_file.write("		<td onClick=\"window.open(\'http://" + (h["hostname"]) + "\')\";"+ "class=\"text-left\">" + (h["hostname"]) + "</td>")
             html_file.write("\n		<td><div class=\"led-green\"></div></td>")
-        else:
+        elif h["status"] == "down" and h["port"] != None:
             html_file.write("\n		<tr>\n")
-            html_file.write("		<td class=\"text-left\">" + h["hostname"] + " port: " + str(h["port"]) + "</td>")
+            html_file.write("		<td onClick=\"window.open(\'http://" + (h["hostname"]) + ":" + str(h["port"]) + "\')\";"+ "class=\"text-left\">" + (h["hostname"]) + " port: " + str(h["port"]) + "</td>")
+            html_file.write("\n		<td><div class=\"led-red\"></div></td>")
+        elif h["status"] == "down":
+            html_file.write("\n		<tr>\n")
+            html_file.write("		<td onClick=\"window.open(\'http://" + (h["hostname"]) + "\')\";" + "class=\"text-left\">" + (h["hostname"]) + "</td>")
             html_file.write("\n		<td><div class=\"led-red\"></div></td>")
     html_file.write('\n	</tbody>\n	</table>\n</body>\n</html>')
 
