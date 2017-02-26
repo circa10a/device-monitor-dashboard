@@ -21,7 +21,7 @@ if (value >= 1.0){
    theme: 'metroui',
    closeWith   : ['click'],
    progressBar : true,
-   timeout     : 15000,
+   timeout     : 10000,
    animation   : {
     open  : 'animated bounceInRight',
     close : 'animated bounceOutRight',
