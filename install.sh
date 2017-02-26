@@ -8,66 +8,66 @@ func_python (){
 echo
 python -V
 if [ $? == 0 ]; then
-	echo "Python already Installed"
+   echo "Python already Installed"
 else
-	echo "Python not installed"
-	echo "Would you like to install it(y/n)? (must be root)"
-	read answer
-	  if [ "$answer" == "y" ]; then
-			if [ "$(id -u)" != "0" ]; then
-				echo
-    		echo "Must be root to install packages..."
-    		exit 1
-			elif [ "$(id -u)" == "0" ]; then
-				apt-get install python -y
-			fi
-	  elif [ "$answer" == "n" ]; then
-		 echo "Python needs to be installed before continuing. Exiting..."
-		 exit 1
-	  else
-		 echo "Unrecognized input. Bye"
-		 exit 1
-	fi
+   echo "Python not installed"
+   echo "Would you like to install it(y/n)? (must be root)"
+   read answer
+   if [ "$answer" == "y" ]; then
+     if [ "$(id -u)" != "0" ]; then
+	echo
+    	echo "Must be root to install packages..."
+    	exit 1
+     elif [ "$(id -u)" == "0" ]; then
+	apt-get install python -y
+     fi
+   elif [ "$answer" == "n" ]; then
+        echo "Python needs to be installed before continuing. Exiting..."
+        exit 1
+   else
+        echo "Unrecognized input. Bye"
+	exit 1
+   fi
 fi
 }
 
 func_node () {
 node -v
 if [ $? == 0 ]; then
-	echo "Node already Installed"
+   echo "Node already Installed"
 else
-	echo "Node not installed"
-	echo "Would you like to install it(y/n)? (must be root)"
-	read answer
-	  if [ "$answer" == "y" ]; then
-			if [ "$(id -u)" != "0" ]; then
-				echo
-    		echo "Must be root to install packages..."
-    		exit 1
-			elif [ "$(id -u)" == "0" ]; then
-				apt-get install nodejs-legacy -y
-				apt-get install npm -y
-				echo "Installing http-server"
-				sleep 3
-				npm install http-server -g
-				if [ $? == 0 ]; then
-				  echo
-					echo "http-server installed."
-				else
-				  echo
-					echo "http-server not installed"
-					echo "Exiting..."
-					sleep 5
-					exit 1
-				fi
-			fi
-	  elif [ "$answer" == "n" ]; then
-		 echo "Node needs to be installed before continuing. Exiting..."
-		 exit 1
-	  else
-		 echo "Unrecognized input. Bye"
-		 exit 1
+   echo "Node not installed"
+   echo "Would you like to install it(y/n)? (must be root)"
+   read answer
+   if [ "$answer" == "y" ]; then
+     if [ "$(id -u)" != "0" ]; then
+	echo
+    	echo "Must be root to install packages..."
+    	exit 1
+     elif [ "$(id -u)" == "0" ]; then
+	apt-get install nodejs-legacy -y
+	apt-get install npm -y
+	echo "Installing http-server"
+	sleep 3
+	npm install http-server -g
+	if [ $? == 0 ]; then
+	   echo
+	   echo "http-server installed."
+	else
+	   echo
+	   echo "http-server not installed"
+	   echo "Exiting..."
+	   sleep 5
+	   exit 1
 	fi
+     fi
+   elif [ "$answer" == "n" ]; then
+	   echo "Node needs to be installed before continuing. Exiting..."
+	   exit 1
+   else
+	   echo "Unrecognized input. Bye"
+	   exit 1
+   fi
 fi
 
 echo "Cloning project in 5 seconds"
@@ -145,30 +145,30 @@ echo "You an also update the devices you would like to monitor by editing $workd
 }
 
 func_apache () {
-	echo
-	apache2 -V
-	if [ $? == 0 ]; then
-		echo "Apache already Installed"
-	else
-		echo "Apache not installed"
-		echo "Would you like to install it(y/n)? (must be root)"
-		read answer
-		  if [ "$answer" == "y" ]; then
-				if [ "$(id -u)" != "0" ]; then
-					echo
-	    		echo "Must be root to install packages..."
-	    		exit 1
-				elif [ "$(id -u)" == "0" ]; then
-					apt-get install apache2 -y
-				fi
-		  elif [ "$answer" == "n" ]; then
-			 echo "Apache needs to be installed before continuing. Exiting..."
-			 exit 1
-		  else
-			 echo "Unrecognized input. Bye"
-			 exit 1
-		fi
+echo
+apache2 -V
+if [ $? == 0 ]; then
+   echo "Apache already Installed"
+else
+   echo "Apache not installed"
+   echo "Would you like to install it(y/n)? (must be root)"
+   read answer
+      if [ "$answer" == "y" ]; then
+	if [ "$(id -u)" != "0" ]; then
+	    echo
+	    echo "Must be root to install packages..."
+	    exit 1
+	elif [ "$(id -u)" == "0" ]; then
+	    apt-get install apache2 -y
 	fi
+      elif [ "$answer" == "n" ]; then
+	    echo "Apache needs to be installed before continuing. Exiting..."
+	    exit 1
+      else
+	   echo "Unrecognized input. Bye"
+   	   exit 1
+      fi
+fi
 
 if [ -d $apachedir ]; then
 	echo "Apache detected"
