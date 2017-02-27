@@ -250,13 +250,14 @@ echo
 echo "Either Node.js/Apache and Python are requirements to deploy IOT-Monitor-Dashboard"
 echo
 echo "This script can install packages for you, but you must be root."
+
 if [ "$(id -u)" != "0" ]; then
    echo "You are not root"
-	 echo "You are $(whoami)"
-   exit 1
+   echo "You are $(whoami)"
 else
 	echo "You are running as root"
 fi
+
 func_python
 sleep 5
 echo "Would you like to deploy with Node.js or Apache?"
