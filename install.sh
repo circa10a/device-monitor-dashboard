@@ -18,6 +18,7 @@ else
     	echo "Must be root to install packages..."
     	exit 1
      elif [ "$(id -u)" == "0" ]; then
+     	apt-get update
 	apt-get install python -y
      fi
    elif [ "$answer" == "n" ]; then
@@ -44,6 +45,7 @@ else
     	echo "Must be root to install packages..."
     	exit 1
      elif [ "$(id -u)" == "0" ]; then
+     	apt-get update
 	apt-get install -y nodejs-legacy npm
 	echo "Installing http-server"
 	sleep 3
@@ -156,6 +158,7 @@ else
 	    echo "Must be root to install packages..."
 	    exit 1
 	elif [ "$(id -u)" == "0" ]; then
+	    apt-get update
 	    apt-get install apache2 -y
 	fi
       elif [ "$answer" == "n" ]; then
