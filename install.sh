@@ -44,7 +44,7 @@ else
     	echo "Must be root to install packages..."
     	exit 1
      elif [ "$(id -u)" == "0" ]; then
-	apt-get install npm nodejs-legacy-y
+	apt-get install npm nodejs-legacy -y
 	echo "Installing http-server"
 	sleep 3
 	if npm install http-server -g ; then
