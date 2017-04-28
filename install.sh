@@ -6,7 +6,7 @@ workdir=$(pwd)
 
 func_python (){
 echo
-if python -v &> /dev/null; then
+if which python; then
    echo "Python already Installed"
 else
    echo "Python not installed"
@@ -32,7 +32,7 @@ fi
 
 func_node () {
 
-if node -v &> /dev/null; then
+if which node; then
    echo "Node already Installed"
 else
    echo "Node not installed"
@@ -144,7 +144,7 @@ echo "You an also update the devices you would like to monitor by editing $workd
 
 func_apache () {
 echo
-if apache2 -V &> /dev/null; then
+if which apache2; then
    echo "Apache already Installed"
 else
    echo "Apache not installed"
