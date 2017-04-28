@@ -76,6 +76,7 @@ sleep 5
 git clone $gitproject $workdir/$project
 echo
 cat /dev/null > $workdir/$project/hostnames.txt
+echo
 echo "Enter the hostnames or ip addresses you would like to monitor"
 echo "One by one and pressing enter after the name/address."
 echo "Ex. www.google.com"
@@ -190,6 +191,7 @@ else
 	exit 1
 fi
 cat /dev/null > $apachedir/$project/hostnames.txt
+echo
 echo "Enter the hostnames or ip addresses you would like to monitor"
 echo "One by one and pressing enter after the name/address."
 echo "Ex. www.google.com"
