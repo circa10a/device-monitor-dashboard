@@ -50,6 +50,7 @@ else
 	echo "Installing http-server"
 	sleep 3
 	if npm install http-server -g ; then
+	   npm install http-server -g
 	   echo
 	   echo "http-server installed."
 	else
