@@ -6,7 +6,7 @@ workdir=$(pwd)
 
 func_python (){
 echo
-if python -v ; then
+if python -v &> /dev/null; then
    echo "Python already Installed"
 else
    echo "Python not installed"
@@ -32,7 +32,7 @@ fi
 
 func_node () {
 
-if node -v ; then
+if node -v &> /dev/null; then
    echo "Node already Installed"
 else
    echo "Node not installed"
@@ -127,7 +127,8 @@ fi
 
 echo "Starting Node.js webserver on port 8080"
 
-if http-server $workdir/$project/ -s & ; then
+if http-server $workdir/$project/ -s ; then
+	http-server $workdir/$project/ -s &
 	echo "Server started successfully"
 else
 	echo "Server did not start successfully"
@@ -144,8 +145,7 @@ echo "You an also update the devices you would like to monitor by editing $workd
 
 func_apache () {
 echo
-
-if apache2 -V ; then
+if apache2 -V &> /dev/null; then
    echo "Apache already Installed"
 else
    echo "Apache not installed"
