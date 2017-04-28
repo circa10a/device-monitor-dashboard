@@ -128,12 +128,14 @@ read input
 fi
 
 echo "Starting Node.js webserver on port 8080"
+http-server $workdir/$project/ -s &
 
-if http-server $workdir/$project/ -s ; then
-	http-server $workdir/$project/ -s &
+if [ $? == 0 ]; then
+	echo
 	echo "Server started successfully"
 else
-	echo "Server did not start successfully"
+	echo "Server was unable to start"
+	exit 1
 fi
 
 echo
