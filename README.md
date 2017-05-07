@@ -18,7 +18,7 @@ Live Demo: https://circa10a.github.io/monitor/
  - (2/3/17) Change status from online/offline text to colored orb indicators
 
 ## Easy Install
-`curl -sL https://raw.githubusercontent.com/circa10a/Device-Monitor-Dashboard/master/install.sh > install.sh && bash install.sh`
+`bash -c "$(curl -sL https://raw.githubusercontent.com/circa10a/Device-Monitor-Dashboard/master/install.sh)"`
 - Either Node.js or Apache and Python required for Easy Install
 - Tested with Ubuntu 16.04 / Apache 2.4.18 / Node.js 4 / Python 2.7
 - Follow the prompts!
