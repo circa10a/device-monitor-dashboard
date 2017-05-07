@@ -248,6 +248,18 @@ echo "If you didn't setup cron, you will need to go to $apachedir/$project and r
 echo "You can access your dashboard at http://$(ifconfig eth0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://')/monitor"
 echo "You an also update the devices you would like to monitor by editing $apachedir/$project/hostnames.txt"
 }
+
+#############
+#Begin Script
+#############
+
+if which apt-get; then
+   :
+else
+   "This script only works on debian/ubuntu."
+   exit 1
+fi
+
 echo "#################################################################"
 echo "  IOT-Monitor-Dashboard install script has started successfully  "
 echo "#################################################################"
