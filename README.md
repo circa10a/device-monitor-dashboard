@@ -9,6 +9,7 @@ Supports:
 Live Demo: https://circa10a.github.io/monitor/
 
 ## Changelog
+ - (5/6/17) Added validation of OS for script to run
  - (2/26/17) Update Easy Install to automatically install packages
  - (2/25/17) Added support for vertically scrolling table, adjusts circle size if on mobile device.
  - (2/24/17) Combined ping function to single file, added ability to check other ports. Also converted script to be more in line with python norms. Table rows now act as hyperlinks to address listed and will auto detect port if specified.
