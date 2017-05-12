@@ -1,4 +1,4 @@
-FROM httpd:2.4.25-alpine
+ROM nginx:alpine
 #Install Python
 RUN apk add --no-cache python && \
     python -m ensurepip && \
@@ -6,14 +6,14 @@ RUN apk add --no-cache python && \
     pip install --upgrade pip setuptools && \
     rm -r /root/.cache
 #Change Working directory
-WORKDIR /usr/local/apache2/htdocs/
+WORKDIR /usr/share/nginx/html
 #Delete existing files to be able to clone
-RUN rm -f /usr/local/apache2/htdocs/index.html
+RUN rm -f /usr/share/nginx/html/index.html
 #Copy Source Files
-COPY . /usr/local/apache2/htdocs
+COPY . /usr/share/nginx/html
 #Create Cron Job
-RUN (crontab -l 2>/dev/null; echo "*/5 * * * * cd /usr/local/apache2/htdocs/ && /usr/bin/python report.py &> /dev/null") | crontab - && \
+RUN (crontab -l 2>/dev/null; echo "*/5 * * * * cd /usr/share/nginx/html && /usr/bin/python report.py &> /dev/null") | crontab - && \
 #Generate Initial Report
-python /usr/local/apache2/htdocs/report.py
-#Start Cron Service then httpd
-CMD crond && httpd-foreground
+python /usr/share/nginx/html/report.py
+#Start Cron Service then nginx
+CMD crond && nginx -g "daemon off;"
