@@ -9,7 +9,7 @@ Supports:
 Live Demo: https://circa10a.github.io/monitor/
 
 ## Changelog
- - (5/27/2017) - Please see https://github.com/shaggyloris/simple-monitor for extended functionality.
+ - (5/27/2017) - Please see https://github.com/shaggyloris/Device-Monitor-Dashboard for extended functionality.
    - Integrated SQLite DB, all controlled via web UI, API functionality to return JSON.
  - (5/6/17) Added validation of OS for script to run
  - (2/26/17) Update Easy Install to automatically install packages
