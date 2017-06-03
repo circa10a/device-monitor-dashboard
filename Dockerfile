@@ -1,4 +1,4 @@
-ROM nginx:alpine
+FROM nginx:alpine
 #Install Python
 RUN apk add --no-cache python && \
     python -m ensurepip && \
