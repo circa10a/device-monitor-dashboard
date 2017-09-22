@@ -33,7 +33,7 @@ Live Demo: https://circa10a.github.io/monitor/
 - Follow the prompts!
 
 ## Usage
-- Have a text file with hostnames or ip addresses (optional: if port is desired seperate by comma. example: www.google.com, 80)
+- Have a text file with hostnames or ip addresses (optional: if port and name are desired separate by comma. example: www.google.com, 80, Google. Custom name requires a port.)
 - Update the python script (variable at the top) with the path/name of your file with hostnames and output file path.(default hostames= hostnames.txt   default output= index.html)
 - Run `python report.py`
 - Ensure that you place the output HTML file in the project directory so it can find its web dependencies
@@ -48,11 +48,11 @@ Live Demo: https://circa10a.github.io/monitor/
 - `docker run -d -p 80:80 -v ~/path/to/your/hostnames.txt:/usr/share/nginx/html/hostnames.txt --name monitor circa10a/device-monitor-dashboard`
 
 ### Build your own docker image:
-- `git clone https://github.com/circa10a/Device-Monitor-Dashboard.git` 
+- `git clone https://github.com/circa10a/Device-Monitor-Dashboard.git`
 - `cd Device-Monitor-Dashboard`   
 - Edit your hostnames.txt file add your website, servers, switches, devices, etc.  
 - `docker build -t myrepo/monitor .`  
-- `docker run --name device-monitor -d -p 80:80 myrepo/monitor` 
+- `docker run --name device-monitor -d -p 80:80 myrepo/monitor`
 ```diff
 - Known issue: Docker for Mac pings any address and returns success giving false results.
 ```
