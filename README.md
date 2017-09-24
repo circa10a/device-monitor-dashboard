@@ -14,6 +14,7 @@ Supports:
 Live Demo: https://circa10a.github.io/monitor/
 
 ## Changelog
+ - (9/25/2017) Add support for custom names
  - (6/3/2017) Now providing a docker image instead of building your own
  - (5/27/2017) - Please see https://github.com/shaggyloris/Device-Monitor-Dashboard for extended functionality.
    - Integrated SQLite DB, all controlled via web UI, API functionality to return JSON.
