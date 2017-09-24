@@ -34,20 +34,18 @@ Live Demo: https://circa10a.github.io/monitor/
 - Follow the prompts!
 
 ## Usage
-- Have a text file with hostnames or ip addresses (optional: if port and name are desired separate by comma. example: www.google.com, 80, Google. Custom name requires a port.)
-- Update the python script (variable at the top) with the path/name of your file with hostnames and output file path.(default hostames= hostnames.txt   default output= index.html)
+- Have a text file with hostnames, port, alias
+  - Example text file
+ ```
+ www.github.com, 80, GitHub
+www.reddit.com, 443, Reddit
+www.google.com, 443, Google
+www.apple.com, 443 ,Apple
+ ```
+- Update the python script (variable at the top) with the path/name of your file with hostnames and output file path.(default hostnames= hostnames.txt   default output= index.html)
 - Run `python report.py`
 - Ensure that you place the output HTML file in the project directory so it can find its web dependencies
- - Page automcatically reloads every 60 seconds.
-
-#### Example Hostnames.txt
-
-```
-www.github.com,80, GitHub
-www.reddit.com, 443, Reddit
-www.google.com, Google
-www.apple.com, Apple
-```
+  - Page automcatically reloads every 60 seconds.
 
 ## Automation
 - Setup a web server
@@ -71,5 +69,5 @@ Note: Wait 5 min for cron job to execute and render an index.html
 - Known issue: Docker for Mac pings any address and returns success giving false results.
 ```
 ##Screenshots
-![alt text](http://i.imgur.com/8BjmGyO.png)
-![alt text](http://i.imgur.com/iRNNMkV.png)
+![alt text](https://i.imgur.com/sx4cJlD.png)
+![alt text](https://i.imgur.com/TW7hMhi.png)
