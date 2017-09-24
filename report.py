@@ -48,7 +48,7 @@ def parsehost(hostfile):
             servername = servername.replace(" ", "")
             # check if port is defined
             if ',' in servername:
-                # create list that is servername, port number
+                # create list that is servername, port number, custom name
                 servername = servername.split(",")
                 hostname = servername[0]
                 try:
@@ -56,9 +56,16 @@ def parsehost(hostfile):
                 except:
                     print "%s Port: %s is not a number!" % (hostname, servername[1])
                     sys.exit()
-                servers.append({"hostname":hostname, "port":port})
+
+                try:
+                    name = servername[2]
+                except:
+                    print "No name"
+                    sys.exit()
+
+                servers.append({"hostname":hostname, "port":port, "name":name})
             else:
-                servers.append({"hostname":servername, "port":None})
+                servers.append({"hostname":servername, "port":None, "name":None})
     return servers
 
 def createhtml(output_file_name, template_file, host_dict):
@@ -112,7 +119,7 @@ def createhtml(output_file_name, template_file, host_dict):
     for h in host_dict:
         if h["status"] == "up" and h["port"] != None:
             html_file.write("\n		<tr>\n")
-            html_file.write("		<td onClick=\"window.open(\'http://" + (h["hostname"]) + ":" + str(h["port"]) + "\')\";" + "class=\"text-left\">" + (h["hostname"]) + " port: " + str(h["port"]) + "</td>")
+            html_file.write("		<td onClick=\"window.open(\'http://" + (h["hostname"]) + ":" + str(h["port"]) + "\')\";" + "class=\"text-left\">" + (h["name"]) + ":" + str(h["port"]) + "</td>")
             html_file.write("\n		<td><div class=\"led-green\"></div></td>")
         elif h["status"] == "up":
             html_file.write("\n		<tr>\n")
