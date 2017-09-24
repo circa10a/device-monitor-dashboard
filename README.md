@@ -38,6 +38,16 @@ Live Demo: https://circa10a.github.io/monitor/
 - Update the python script (variable at the top) with the path/name of your file with hostnames and output file path.(default hostames= hostnames.txt   default output= index.html)
 - Run `python report.py`
 - Ensure that you place the output HTML file in the project directory so it can find its web dependencies
+ - Page automcatically reloads every 60 seconds.
+
+#### Example Hostnames.txt
+
+```
+www.github.com,80, GitHub
+www.reddit.com, 443, Reddit
+www.google.com, Google
+www.apple.com, Apple
+```
 
 ## Automation
 - Setup a web server
@@ -47,6 +57,9 @@ Live Demo: https://circa10a.github.io/monitor/
 
 ## Docker!
 - `docker run -d -p 80:80 -v ~/path/to/your/hostnames.txt:/usr/share/nginx/html/hostnames.txt --name monitor circa10a/device-monitor-dashboard`
+```
+Note: Wait 5 min for cron job to execute and render an index.html
+```
 
 ### Build your own docker image:
 - `git clone https://github.com/circa10a/Device-Monitor-Dashboard.git`
