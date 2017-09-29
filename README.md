@@ -11,7 +11,8 @@ Supports:
  - Windows
  - Raspberry Pi
 
-Live Demo: https://circa10a.github.io/monitor/
+### Live Demo:
+[Working](https://circa10a.github.io/monitor/) / [Failing](https://circa10a.github.io/monitor/fail)
 
 ## Changelog
  - (9/25/2017) Add support for custom names
