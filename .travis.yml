@@ -5,3 +5,5 @@ python:
 script:
   - python report.py
   - ls -l
+  - test -f ./index.html
+  - cat ./index.html
