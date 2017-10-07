@@ -12,7 +12,7 @@ Supports:
  - Raspberry Pi
 
 ### Live Demo:
-[Working](https://circa10a.github.io/monitor/) / [Failing](https://circa10a.github.io/monitor/fail)
+[Working](http://caleblemoine.me/monitor/) / [Failing](http://caleblemoine.me/monitor/fail)
 
 ## Changelog
  - (9/25/2017) Add support for custom names
