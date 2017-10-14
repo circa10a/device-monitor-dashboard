@@ -15,5 +15,8 @@ script:
 after_script:
   - set -e
   - docker build -t circa10a/device-monitor-dashboard .
+  - docker run --rm -d --name monitor circa10a/device-monitor-dashboard
+  - sleep 10
+  - docker ps | grep monitor
   - docker login -u="$docker_username" -p="$docker_password"
   - docker push circa10a/device-monitor-dashboard
