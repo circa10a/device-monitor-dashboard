@@ -7,3 +7,9 @@ script:
   - ls -l
   - test -f ./index.html
   - cat ./index.html
+
+after_script:
+  - set -e
+  - docker build -t circa10a/device-monitor-dashboard .
+  - docker login -u="$docker_username" -p="$docker_password"
+  - docker push circa10a/device-monitor-dashboard
