@@ -70,6 +70,6 @@ Note: Wait 5 min for cron job to execute and render an index.html
 ```diff
 - Known issue: Docker for Mac pings any address and returns success giving false results.
 ```
-##Screenshots
+## Screenshots
 ![alt text](https://i.imgur.com/sx4cJlD.png)
 ![alt text](https://i.imgur.com/TW7hMhi.png)
