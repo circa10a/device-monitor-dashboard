@@ -7,7 +7,7 @@ workdir=$(pwd)
 
 func_python() {
   echo
-  if which python; then
+  if command -v python > /dev/null; then
     $green
     echo "Python already Installed"
     $reset
@@ -44,7 +44,7 @@ func_python() {
 }
 
 func_node() {
-  if which node; then
+  if command -v node > /dev/null; then
     $green
     echo "Node already Installed"
     $reset
@@ -208,7 +208,7 @@ func_node() {
 
 func_apache() {
   echo
-  if which apache2; then
+  if command -v apache2 > /dev/null; then
     $green
     echo "Apache already Installed"
     $reset
@@ -348,7 +348,7 @@ green="tput setaf 2"
 yellow="tput setaf 3"
 reset="tput sgr0"
 
-if which apt-get; then
+if command -v apt-get > /dev/null; then
   :
 else
   $red
