@@ -1,10 +1,9 @@
-
 var value = $('#circle').circleProgress('value');
 if (value >= 1.0){
   //$('#circle').circleProgress({ fill: "green" });
-  noty({text: '100% of devices online',
+  new Noty({text: '100% of devices online',
   type: 'success',
-  theme: 'metroui',
+  theme: 'mint',
   closeWith   : ['click'],
   progressBar : true,
   timeout     : 10000,
@@ -13,12 +12,12 @@ if (value >= 1.0){
    close : 'animated bounceOutRight',
    easing: 'swing',
   }
-  });
-  
+  }).show();
+
 } else {
-  noty({text: value * 100 + ' % of devices online',
+  new Noty({text: value * 100 + ' % of devices online',
    type: 'error',
-   theme: 'metroui',
+   theme: 'mint',
    closeWith   : ['click'],
    progressBar : true,
    timeout     : 10000,
@@ -27,6 +26,5 @@ if (value >= 1.0){
     close : 'animated bounceOutRight',
     easing: 'swing',
   }
-
-  });
+  }).show();
  }
