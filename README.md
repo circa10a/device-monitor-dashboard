@@ -63,9 +63,7 @@ www.apple.com, 443 ,Apple
 docker run -d -p 80:80 -v ~/path/to/your/hostnames.txt:/usr/share/nginx/html/hostnames.txt --name monitor circa10a/device-monitor-dashboard
 ```
 
-```
- - Note: Wait 5 min for cron job to execute and render an index.html
-```
+**Note: Wait 5 min for cron job to execute and render an index.html**
 
 ### Build your own docker image:
 
