@@ -3,7 +3,6 @@
 nginxdir="/var/www/html"
 gitproject="https://github.com/circa10a/Device-Monitor-Dashboard.git"
 project="monitor"
-workdir=$(pwd)
 
 func_python() {
   echo
