@@ -16,7 +16,7 @@ Supports:
  ```
 
 ### Live Demo:
-[Working](http://caleblemoine.me/monitor/) / [Failing](http://caleblemoine.me/monitor/fail)
+[100% Devices Up](http://caleblemoine.me/monitor/) / [Failing Devices](http://caleblemoine.me/monitor/fail)
 
 ## Changelog
  - (10/27/2017) Updated UI, noty.js
@@ -39,8 +39,8 @@ Supports:
 bash -c "$(curl -sL https://raw.githubusercontent.com/circa10a/Device-Monitor-Dashboard/master/install.sh)"
 ```
 
-- Either Node.js or Apache and Python required for Easy Install
-- Tested with Ubuntu 16.04 / Apache 2.4.18 / Node.js 4 / Python 2.7
+- Nginx and Python required for Easy Install
+- Tested with Ubuntu 16.04.3 / Nginx 1.10.3 / Python 2.7
 - Follow the prompts!
 
 ## Usage
@@ -52,7 +52,7 @@ www.reddit.com, 443, Reddit
 www.google.com, 443, Google
 www.apple.com, 443 ,Apple
  ```
-- Update the python script (variable at the top) with the path/name of your file with hostnames and output file path.(default hostnames= hostnames.txt   default output= index.html)
+- Update the python script (variable at the top) with the path/name of your file with hostnames and output file path.(default hostnames= `./hostnames.txt`   default output= `./index.html`)
 - Run `python report.py`
 - Ensure that you place the output HTML file in the project directory so it can find its web dependencies
   - Page automcatically reloads every 60 seconds.
