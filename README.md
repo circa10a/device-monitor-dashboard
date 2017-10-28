@@ -16,7 +16,7 @@ Supports:
  ```
 
 ### Live Demo:
-[100% Devices UP](http://caleblemoine.me/monitor/) / [Failing Devices](http://caleblemoine.me/monitor/fail)
+[100% Devices Up](http://caleblemoine.me/monitor/) / [Failing Devices](http://caleblemoine.me/monitor/fail)
 
 ## Changelog
  - (10/27/2017) Updated UI, noty.js
