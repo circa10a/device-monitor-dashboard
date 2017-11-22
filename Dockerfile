@@ -11,9 +11,8 @@ WORKDIR /usr/share/nginx/html
 RUN rm -f /usr/share/nginx/html/index.html
 #Copy Source Files
 COPY . /usr/share/nginx/html
-#Create Cron Job
+#Create Cron Job & Generate Initial Report
 RUN (crontab -l 2>/dev/null; echo "*/5 * * * * cd /usr/share/nginx/html && /usr/bin/python report.py &> /dev/null") | crontab - && \
-#Generate Initial Report
 python /usr/share/nginx/html/report.py
 #Start Cron Service then nginx
 CMD crond && nginx -g "daemon off;"
