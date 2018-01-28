@@ -5,6 +5,7 @@ services:
 
 python:
   - "2.7"
+  - "3.6"
 
 script:
   - python report.py
@@ -14,9 +15,9 @@ script:
 
 after_script:
   - set -e
-  - docker build -t "$docker_username"/device-monitor-dashboard .
-  - docker run --rm -d --name monitor "$docker_username"/device-monitor-dashboard
+  - docker build -t circa10a/device-monitor-dashboard .
+  - docker run --rm -d --name monitor circa10a/device-monitor-dashboard
   - sleep 10
   - docker ps | grep monitor
-  - docker login -u="$docker_username" -p="$docker_password"
-  - docker push "$docker_username"/device-monitor-dashboard
+  - docker login -u=circa10a -p=$docker_password
+  - docker push circa10a/device-monitor-dashboard
