@@ -6,8 +6,8 @@ import sys
 import platform
 import socket
 
-def pinghost(hostname):
 
+def pinghost(hostname):
     # Check os type to determine which ping command to use
     os_type = platform.platform()
     if "Windows" in os_type:
@@ -21,24 +21,23 @@ def pinghost(hostname):
 
 
 def checksock(hostname, port):
-
     if isinstance(port, int):
         pass
     else:
         try:
             port = int(port)
-        except:
-            print 'Port number is not numeric!'
+        except ValueError:
+            print('Port number is not numeric!')
             sys.exit()
     try:
         r = socket.create_connection((hostname, port), 2)
         return True
-    except socket.error as e:
-        print '%s failed on port: %s' % (hostname, str(port))
+    except socket.error:
+        print('%s failed on port: %s' % (hostname, str(port)))
         return False
 
-def parsehost(hostfile):
 
+def parsehost(hostfile):
     servers = []
     with open(hostfile, "r") as ins:
         for servername in ins:
@@ -53,23 +52,23 @@ def parsehost(hostfile):
                 hostname = servername[0]
                 try:
                     port = int(servername[1])
-                except:
-                    print "%s Port: %s is not a number!" % (hostname, servername[1])
+                except ValueError:
+                    print("%s Port: %s is not a number!" % (hostname, servername[1]))
                     sys.exit()
 
                 try:
                     name = servername[2]
-                except:
-                    print "No name"
+                except IndexError:
+                    print("No name")
                     sys.exit()
 
-                servers.append({"hostname":hostname, "port":port, "name":name})
+                servers.append({"hostname": hostname, "port": port, "name": name})
             else:
-                servers.append({"hostname":servername, "port":None, "name":None})
+                servers.append({"hostname": servername, "port": None, "name": None})
     return servers
 
-def createhtml(output_file_name, template_file, host_dict):
 
+def createhtml(output_file_name, template_file, host_dict):
     refresh_rate = "60"
     today = (datetime.datetime.now())
     now = today.strftime("%m/%d/%Y %H:%M:%S")
@@ -117,7 +116,7 @@ def createhtml(output_file_name, template_file, host_dict):
     f.close()
     html_file = open(output_file_name, "a")
     for h in host_dict:
-        if h["status"] == "up" and h["port"] != None:
+        if h["status"] == "up" and h["port"] is not None:
             html_file.write("\n		<tr>\n")
             html_file.write("		<td onClick=\"window.open(\'http://" + (h["hostname"]) + ":" + str(h["port"]) + "\')\";" + "class=\"text-left\">" + (h["name"]) + ":" + str(h["port"]) + "</td>")
             html_file.write("\n		<td><div class=\"led-green\"></div></td>")
@@ -125,7 +124,7 @@ def createhtml(output_file_name, template_file, host_dict):
             html_file.write("\n		<tr>\n")
             html_file.write("		<td onClick=\"window.open(\'http://" + (h["hostname"]) + "\')\";"+ "class=\"text-left\">" + (h["hostname"]) + "</td>")
             html_file.write("\n		<td><div class=\"led-green\"></div></td>")
-        elif h["status"] == "down" and h["port"] != None:
+        elif h["status"] == "down" and h["port"] is not None:
             html_file.write("\n		<tr>\n")
             html_file.write("		<td onClick=\"window.open(\'http://" + (h["hostname"]) + ":" + str(h["port"]) + "\')\";"+ "class=\"text-left\">" + (h["hostname"]) + " port: " + str(h["port"]) + "</td>")
             html_file.write("\n		<td><div class=\"led-red\"></div></td>")
@@ -135,8 +134,8 @@ def createhtml(output_file_name, template_file, host_dict):
             html_file.write("\n		<td><div class=\"led-red\"></div></td>")
     html_file.write('\n	</tbody>\n	</table>\n</body>\n</html>')
 
-def main():
 
+def main():
     names_list = "hostnames.txt"
     # put the path that you would like the report to be written to
     output_file_name = "index.html"
@@ -144,7 +143,7 @@ def main():
     template_file = "template/template.html"
     hosts = parsehost(names_list)
     for h in hosts:
-        if h["port"] != None:
+        if h["port"] is not None:
             test = checksock(h["hostname"], h["port"])
         else:
             test = pinghost(h["hostname"])
