@@ -20,6 +20,7 @@ Supports:
 
 ## Changelog
 ---
+ - (1/27/2018) Added python 3 compatibility
  - (10/27/2017) Updated UI, noty.js
  - (9/25/2017) Add support for custom names
  - (6/3/2017) Now providing a docker image instead of building your own
