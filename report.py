@@ -71,7 +71,7 @@ def parsehost(hostfile):
     return servers
 
 
-def createhtml(output_file_name, template_file, host_dict):
+def createhtml(output_file_name, host_dict):
     refresh_rate = "60"
     today = (datetime.datetime.now())
     now = today.strftime("%m/%d/%Y %H:%M:%S")
@@ -99,8 +99,6 @@ def main():
     names_list = "hostnames.txt"
     # put the path that you would like the report to be written to
     output_file_name = "index.html"
-    # html template
-    template_file = "template/template.html"
     hosts = parsehost(names_list)
     for h in hosts:
         if h.get("port"):
@@ -111,7 +109,7 @@ def main():
             h.update(status="up")
         else:
             h.update(status="down")
-    createhtml(output_file_name, template_file, hosts)
+    createhtml(output_file_name, hosts)
 
 
 if __name__ == "__main__":
