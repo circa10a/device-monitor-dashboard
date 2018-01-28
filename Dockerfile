@@ -3,7 +3,7 @@ FROM nginx:alpine
 RUN apk add --no-cache python && \
     python -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
-    pip install --upgrade pip setuptools && \
+    pip install --upgrade pip setuptools jinja2 && \
     rm -r /root/.cache
 #Change Working directory
 WORKDIR /usr/share/nginx/html
