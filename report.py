@@ -11,26 +11,21 @@ def pinghost(hostname):
     # Check os type to determine which ping command to use
     os_type = platform.platform()
     if "Windows" in os_type:
-        response = os.system("ping -n 1 " + hostname)
+        response = os.system("ping -n 1 {0}".format(hostname))
     else:
-        response = os.system("ping -c 1 " + hostname)
-    if response == 0:
-        return True
-    else:
-        return False
+        response = os.system("ping -c 1 {0}".format(hostname))
+    return True if response == 0 else False
 
 
 def checksock(hostname, port):
-    if isinstance(port, int):
-        pass
-    else:
+    if not isinstance(port, int):
         try:
             port = int(port)
         except ValueError:
             print('Port number is not numeric!')
             sys.exit()
     try:
-        r = socket.create_connection((hostname, port), 2)
+        socket.create_connection((hostname, port), 2)
         return True
     except socket.error:
         print('%s failed on port: %s' % (hostname, str(port)))
@@ -76,7 +71,7 @@ def createhtml(output_file_name, template_file, host_dict):
     servers_down = 0.00
     servers_percent = 0.00
     for h in host_dict:
-        if h["status"] == "up":
+        if h.get("status") == "up":
             servers_up += 1
         else:
             servers_down += 1
@@ -116,21 +111,21 @@ def createhtml(output_file_name, template_file, host_dict):
     f.close()
     html_file = open(output_file_name, "a")
     for h in host_dict:
-        if h["status"] == "up" and h["port"] is not None:
+        if h.get("status") == "up" and h.get("port") is not None:
             html_file.write("\n		<tr>\n")
-            html_file.write("		<td onClick=\"window.open(\'http://" + (h["hostname"]) + ":" + str(h["port"]) + "\')\";" + "class=\"text-left\">" + (h["name"]) + ":" + str(h["port"]) + "</td>")
+            html_file.write("		<td onClick=\"window.open(\'http://" + (h.get("hostname")) + ":" + str(h.get("port")) + "\')\";" + "class=\"text-left\">" + (h["name"]) + ":" + str(h.get("port")) + "</td>")
             html_file.write("\n		<td><div class=\"led-green\"></div></td>")
-        elif h["status"] == "up":
+        elif h.get("status") == "up":
             html_file.write("\n		<tr>\n")
-            html_file.write("		<td onClick=\"window.open(\'http://" + (h["hostname"]) + "\')\";"+ "class=\"text-left\">" + (h["hostname"]) + "</td>")
+            html_file.write("		<td onClick=\"window.open(\'http://" + (h.get("hostname")) + "\')\";"+ "class=\"text-left\">" + (h.get("hostname")) + "</td>")
             html_file.write("\n		<td><div class=\"led-green\"></div></td>")
-        elif h["status"] == "down" and h["port"] is not None:
+        elif h.get("status") == "down" and h.get("port") is not None:
             html_file.write("\n		<tr>\n")
-            html_file.write("		<td onClick=\"window.open(\'http://" + (h["hostname"]) + ":" + str(h["port"]) + "\')\";"+ "class=\"text-left\">" + (h["hostname"]) + " port: " + str(h["port"]) + "</td>")
+            html_file.write("		<td onClick=\"window.open(\'http://" + (h.get("hostname")) + ":" + str(h.get("port")) + "\')\";"+ "class=\"text-left\">" + (h.get("hostname")) + " port: " + str(h.get("port")) + "</td>")
             html_file.write("\n		<td><div class=\"led-red\"></div></td>")
-        elif h["status"] == "down":
+        elif h.get("status") == "down":
             html_file.write("\n		<tr>\n")
-            html_file.write("		<td onClick=\"window.open(\'http://" + (h["hostname"]) + "\')\";" + "class=\"text-left\">" + (h["hostname"]) + "</td>")
+            html_file.write("		<td onClick=\"window.open(\'http://" + (h.get("hostname")) + "\')\";" + "class=\"text-left\">" + (h.get("hostname")) + "</td>")
             html_file.write("\n		<td><div class=\"led-red\"></div></td>")
     html_file.write('\n	</tbody>\n	</table>\n</body>\n</html>')
 
@@ -143,11 +138,11 @@ def main():
     template_file = "template/template.html"
     hosts = parsehost(names_list)
     for h in hosts:
-        if h["port"] is not None:
-            test = checksock(h["hostname"], h["port"])
+        if h.get("port"):
+            alive = checksock(h.get("hostname"), h.get("port"))
         else:
-            test = pinghost(h["hostname"])
-        if test:
+            alive = pinghost(h.get("hostname"))
+        if alive:
             h.update(status="up")
         else:
             h.update(status="down")
