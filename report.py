@@ -6,6 +6,14 @@ import sys
 import platform
 import socket
 
+from jinja2 import Environment, FileSystemLoader
+
+env = Environment(
+    loader=FileSystemLoader('template')
+)
+
+template = env.get_template('template.html.j2')
+
 
 def pinghost(hostname):
     # Check os type to determine which ping command to use
@@ -77,57 +85,14 @@ def createhtml(output_file_name, template_file, host_dict):
             servers_down += 1
     server_total = (servers_up + servers_down)
     servers_percent = str(round((((server_total) - servers_down) / (server_total)), 2))
-    # empty status.html
-    f = open(output_file_name, "w")
-    f.close()
 
-    # write static lines from html file
-    f = open(output_file_name, "r+")
-    f.writelines([l for l in open(template_file).readlines()])
-    f.close()
-
-    # fill in "refresh_rate"
-    f = open(output_file_name, "r+")
-    content = f.read()
-    f.seek(0)
-    f.truncate()
-    f.write(content.replace("#REFRESHRATE", refresh_rate))
-    f.close()
-
-    # fill in "servers_percent"
-    f = open(output_file_name, "r+")
-    content = f.read()
-    f.seek(0)
-    f.truncate()
-    f.write(content.replace("#SERVERSPERCENT", servers_percent))
-    f.close()
-
-    # fill in "now"
-    f = open(output_file_name, "r+")
-    content = f.read()
-    f.seek(0)
-    f.truncate()
-    f.write(content.replace("#NOW", now))
-    f.close()
-    html_file = open(output_file_name, "a")
-    for h in host_dict:
-        if h.get("status") == "up" and h.get("port") is not None:
-            html_file.write("\n		<tr>\n")
-            html_file.write("		<td onClick=\"window.open(\'http://" + (h.get("hostname")) + ":" + str(h.get("port")) + "\')\";" + "class=\"text-left\">" + (h["name"]) + ":" + str(h.get("port")) + "</td>")
-            html_file.write("\n		<td><div class=\"led-green\"></div></td>")
-        elif h.get("status") == "up":
-            html_file.write("\n		<tr>\n")
-            html_file.write("		<td onClick=\"window.open(\'http://" + (h.get("hostname")) + "\')\";"+ "class=\"text-left\">" + (h.get("hostname")) + "</td>")
-            html_file.write("\n		<td><div class=\"led-green\"></div></td>")
-        elif h.get("status") == "down" and h.get("port") is not None:
-            html_file.write("\n		<tr>\n")
-            html_file.write("		<td onClick=\"window.open(\'http://" + (h.get("hostname")) + ":" + str(h.get("port")) + "\')\";"+ "class=\"text-left\">" + (h.get("hostname")) + " port: " + str(h.get("port")) + "</td>")
-            html_file.write("\n		<td><div class=\"led-red\"></div></td>")
-        elif h.get("status") == "down":
-            html_file.write("\n		<tr>\n")
-            html_file.write("		<td onClick=\"window.open(\'http://" + (h.get("hostname")) + "\')\";" + "class=\"text-left\">" + (h.get("hostname")) + "</td>")
-            html_file.write("\n		<td><div class=\"led-red\"></div></td>")
-    html_file.write('\n	</tbody>\n	</table>\n</body>\n</html>')
+    template.stream(refresh_rate=refresh_rate,
+                    today=today, now=now,
+                    servers_up=servers_up,
+                    servers_down=servers_down,
+                    servers_percent=servers_percent,
+                    server_total=server_total,
+                    host_dict=host_dict).dump('index.html')
 
 
 def main():
