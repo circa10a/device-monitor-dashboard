@@ -8,7 +8,7 @@ python:
   - "3.6"
 
 script:
-  - pip install jinja2
+  - pip install -r requirements.txt
   - python report.py
   - ls -l
   - test -f ./index.html
