@@ -10,6 +10,40 @@ func_python() {
     $green
     echo "Python already Installed"
     $reset
+
+    echo
+    if command -v pip --version >/dev/null; then
+      $green
+      echo "Pip already Installed"
+      $reset
+    else
+      $red
+      echo "Pip not installed"
+      $yellow
+      echo "Would you like to install it(y/n)? (must be root)"
+      $reset
+      read answer
+      if [ "$answer" == "y" ]; then
+        if is_root; then
+          :
+        else
+          apt-get update
+          apt-get install python-pip -y
+          pip install jinja2
+        fi
+      elif [ "$answer" == "n" ]; then
+        $red
+        echo "Pip needs to be installed before continuing. Exiting..."
+        $reset
+        exit 1
+      else
+        $red
+        echo "Unrecognized input. Bye"
+        $reset
+        exit 1
+      fi
+    fi
+
   else
     $red
     echo "Python not installed"
@@ -18,15 +52,11 @@ func_python() {
     $reset
     read answer
     if [ "$answer" == "y" ]; then
-      if [ "$(id -u)" != "0" ]; then
-        echo
-        $red
-        echo "Must be root to install packages..."
-        $reset
-        exit 1
-      elif [ "$(id -u)" == "0" ]; then
+      if is_root; then
         apt-get update
         apt-get install python -y
+      else
+        :
       fi
     elif [ "$answer" == "n" ]; then
       $red
@@ -56,15 +86,11 @@ func_nginx() {
     $reset
     read answer
     if [ "$answer" == "y" ]; then
-      if [ "$(id -u)" != "0" ]; then
-        echo
-        $red
-        echo "Must be root to install packages..."
-        $reset
-        exit 1
-      elif [ "$(id -u)" == "0" ]; then
+      if is_root; then
         apt-get update
         apt-get install nginx -y
+      else
+        :
       fi
     elif [ "$answer" == "n" ]; then
       $red
@@ -179,6 +205,30 @@ func_nginx() {
   $reset
 }
 
+is_root() {
+  if [ "$(id -u)" != "0" ]; then
+    echo
+    $red
+    echo "Must be root to install packages..."
+    $reset
+    exit 1
+  else
+    return 0
+  fi
+}
+
+if_ubuntu() {
+  if command -v apt-get >/dev/null; then
+    :
+    apt-get update apt-get >/dev/null
+  else
+    $red
+    "This script only works on debian/ubuntu."
+    $reset
+    exit 1
+  fi
+}
+
 ##############
 # Begin Script
 ##############
@@ -187,19 +237,11 @@ green="tput setaf 2"
 yellow="tput setaf 3"
 reset="tput sgr0"
 
-if command -v apt-get >/dev/null; then
-  :
-  apt-get update apt-get >/dev/null
-else
-  $red
-  "This script only works on debian/ubuntu."
-  $reset
-  exit 1
-fi
+if_ubuntu
 
 $green
 echo "######################################"
-echo "# IOT-Monitor-Dashboard Easy Install #"
+echo "# Device-Monitor-Dashboard Easy Install #"
 echo "#######################################"
 echo
 $yellow
@@ -210,11 +252,11 @@ echo
 sleep 3
 $reset
 
-if [ "$(id -u)" != "0" ]; then
+if is_root; then
+  echo "You are running as root"
+else
   echo "You are not root"
   echo "You are $(whoami)"
-else
-  echo "You are running as root"
 fi
 
 func_python
