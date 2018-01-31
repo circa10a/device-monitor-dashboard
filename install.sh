@@ -10,7 +10,6 @@ func_python() {
     $green
     echo "Python already Installed"
     $reset
-
     echo
     if command -v pip --version >/dev/null; then
       $green
@@ -219,7 +218,6 @@ is_root() {
 
 if_ubuntu() {
   if command -v apt-get >/dev/null; then
-    :
     apt-get update apt-get >/dev/null
   else
     $red
