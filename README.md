@@ -20,6 +20,7 @@ Supports:
 
 ## Changelog
 ---
+ - (1/30/2018) Replace trunicates with jinja templating engine
  - (1/27/2018) Added python 3 compatibility
  - (10/27/2017) Updated UI, noty.js
  - (9/25/2017) Add support for custom names
