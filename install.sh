@@ -1,4 +1,4 @@
-#!/bin/bash -eu
+#!/usr/bin/env bash
 
 nginxdir="/var/www/html"
 gitproject="https://github.com/circa10a/Device-Monitor-Dashboard.git"
@@ -238,9 +238,9 @@ reset="tput sgr0"
 if_ubuntu
 
 $green
-echo "######################################"
+echo "#########################################"
 echo "# Device-Monitor-Dashboard Easy Install #"
-echo "#######################################"
+echo "#########################################"
 echo
 $yellow
 echo "Nginx is required to deploy IOT-Monitor-Dashboard via Easy-Install."
