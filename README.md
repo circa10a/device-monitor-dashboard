@@ -1,7 +1,7 @@
 # Device-Monitor-Dashboard
 [![Build Status](https://travis-ci.org/circa10a/Device-Monitor-Dashboard.svg?branch=master)](https://travis-ci.org/circa10a/Device-Monitor-Dashboard)
 [![Docker Repository on Quay](https://quay.io/repository/circa10a/device-monitor-dashboard/status "Docker Repository on Quay")](https://quay.io/repository/circa10a/device-monitor-dashboard)
-[![Docker Automated buil](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)]()
+[![Docker Automated buil](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/circa10a/device-monitor-dashboard/)
 [![](https://images.microbadger.com/badges/image/circa10a/device-monitor-dashboard.svg)](https://microbadger.com/images/circa10a/device-monitor-dashboard "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/circa10a/device-monitor-dashboard.svg)](https://microbadger.com/images/circa10a/device-monitor-dashboard "Get your own version badge on microbadger.com")
 
