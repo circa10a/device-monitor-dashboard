@@ -1,4 +1,0 @@
-www.github.com,80, GitHub
-www.reddit.com, 443, Reddit
-www.google.com, 443, Google
-www.apple.com, 443, Apple

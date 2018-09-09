@@ -5,6 +5,7 @@ import datetime
 import sys
 import platform
 import socket
+import json
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -14,7 +15,6 @@ env = Environment(
 
 template = env.get_template('template.html.j2')
 
-
 def pinghost(hostname):
     # Check os type to determine which ping command to use
     os_type = platform.platform()
@@ -23,7 +23,6 @@ def pinghost(hostname):
     else:
         response = os.system("ping -c 1 {0}".format(hostname))
     return True if response == 0 else False
-
 
 def checksock(hostname, port):
     if not isinstance(port, int):
@@ -39,37 +38,20 @@ def checksock(hostname, port):
         print('%s failed on port: %s' % (hostname, str(port)))
         return False
 
-
 def parsehost(hostfile):
     servers = []
-    with open(hostfile, "r") as ins:
-        for servername in ins:
-            # strip leading/trailing whitespaces and newlines
-            servername = servername.strip()
-            # remove additional spaces
-            servername = servername.replace(" ", "")
-            # check if port is defined
-            if ',' in servername:
-                # create list that is servername, port number, custom name
-                servername = servername.split(",")
-                hostname = servername[0]
-                try:
-                    port = int(servername[1])
-                except ValueError:
-                    print("%s Port: %s is not a number!" % (hostname, servername[1]))
+    with open(hostfile, "r") as f:
+        data = json.load(f)
+        for item in data:
+                if not isinstance(item["port"], int):
+                    print("%s Port: %s is not a number!" % (item["url"], item["port"]))
                     sys.exit()
 
-                try:
-                    name = servername[2]
-                except IndexError:
-                    print("No name")
-                    sys.exit()
-
-                servers.append({"hostname": hostname, "port": port, "name": name})
-            else:
-                servers.append({"hostname": servername, "port": None, "name": None})
+                if item["alias"]:
+                    servers.append({"hostname": item["url"], "port": item["port"], "name": item["alias"]})
+                else:
+                    servers.append({"hostname": item["url"], "port": item["port"], "name": item["url"]})
     return servers
-
 
 def createhtml(output_file_name, host_dict):
     refresh_rate = "60"
@@ -94,9 +76,8 @@ def createhtml(output_file_name, host_dict):
                     server_total=server_total,
                     host_dict=host_dict).dump('index.html')
 
-
 def main():
-    names_list = "hostnames.txt"
+    names_list = "hostnames.json"
     # put the path that you would like the report to be written to
     output_file_name = "index.html"
     hosts = parsehost(names_list)
@@ -110,7 +91,6 @@ def main():
         else:
             h.update(status="down")
     createhtml(output_file_name, hosts)
-
 
 if __name__ == "__main__":
     main()

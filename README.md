@@ -6,13 +6,13 @@
 [![](https://images.microbadger.com/badges/version/circa10a/device-monitor-dashboard.svg)](https://microbadger.com/images/circa10a/device-monitor-dashboard "Get your own version badge on microbadger.com")
 
 Python script to generate material design html report of devices' online/offline status. A cheap/fun reporting solution.
-This can be used for for servers, networking equipment, IOT devices, anything that's "pingable".  
+This can be used for for servers, networking equipment, IOT devices, anything that's "pingable".
 Supports:
 
  * Linux
  * Windows
  * Raspberry Pi
- 
+
 
 ### Live Demo:
 [100% Devices Up](http://caleblemoine.me/monitor/) / [Failing Devices](http://caleblemoine.me/monitor/fail)
@@ -20,6 +20,7 @@ Supports:
 
 ## Changelog
 ---
+ - (9/9/2018) Replace txt file format with json
  - (1/30/2018) Replace trunicates with jinja templating engine
  - (1/27/2018) Added python 3 compatibility
  - (10/27/2017) Updated UI, noty.js
@@ -49,24 +50,44 @@ bash -c "$(curl -sL https://raw.githubusercontent.com/circa10a/Device-Monitor-Da
 
 ## Usage
 ---
-- Have a text file with hostnames, port, alias
-  - Example text file
+- Have a JSON file(array of objects) with hostnames, port, alias
+  - Example JSON file
+
+ ```json
+[
+    {
+        "url": "www.github.com",
+        "port": 443,
+        "alias": "GitHub"
+    },
+    {
+        "url": "www.reddit.com",
+        "port": 443,
+        "alias": "Reddit"
+    },
+    {
+        "url": "www.google.com",
+        "port": 80,
+        "alias": "Google"
+    },
+    {
+        "url": "www.apple.com",
+        "port": 80,
+        "alias": null
+    }
+]
  ```
- www.github.com, 80, GitHub
-www.reddit.com, 443, Reddit
-www.google.com, 443, Google
-www.apple.com, 443 ,Apple
- ```
-- Update the python script (variable at the top) with the path/name of your file with hostnames and output file path.(default hostnames= `./hostnames.txt`   default output= `./index.html`)
+
+- Update the python script (variable at the top) with the path/name of your file with hostnames and output file path.(default hostnames= `./hostnames.json   default output= `./index.html`)
 - Run `python report.py`
 - Ensure that you place the output HTML file in the project directory so it can find its web dependencies
   - Page automcatically reloads every 60 seconds.
-  
+
 ## Docker!
 ---
 
 ```bash
-docker run -d -p 80:80 -v ~/path/to/your/hostnames.txt:/usr/share/nginx/html/hostnames.txt --name monitor circa10a/device-monitor-dashboard
+docker run -d -p 80:80 -v ~/path/to/your/hostnames.json:/usr/share/nginx/html/hostnames.json --name monitor circa10a/device-monitor-dashboard
 ```
 
 **Note: Wait 5 min for cron job to execute and render an index.html**
@@ -75,12 +96,12 @@ docker run -d -p 80:80 -v ~/path/to/your/hostnames.txt:/usr/share/nginx/html/hos
 
 ```bash
 git clone https://github.com/circa10a/Device-Monitor-Dashboard.git
-cd Device-Monitor-Dashboard  
+cd Device-Monitor-Dashboard
 ```
 
-- Edit your hostnames.txt file add your website, servers, switches, devices, etc.  
+- Edit your hostnames.json file add your website, servers, switches, devices, etc.
 ```bash
-docker build -t myrepo/monitor 
+docker build -t myrepo/monitor
 docker run --name device-monitor -d -p 80:80 myrepo/monitor
 ```
 

@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <META HTTP-EQUIV="refresh" CONTENT="60">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="js/noty/lib/noty.css">
+    <script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="js/circle-progress/circle-progress.min.js"></script>
+    <script type="text/javascript" src="js/noty/lib/noty.min.js"></script>
+    <title>Monitor Dashboard</title>
+</head>
+
+<body>
+    <div id="circle"><strong></strong></div>
+    <script>
+        $('#circle').circleProgress({
+            value: "1.0",
+            size: 350,
+            thickness: 6,
+            emptyFill: "#262b33",
+            fill: {
+                color: ["#0AB0DE"]
+            }
+        }).on('circle-animation-progress', function(event, progress, stepValue) {
+            $(this).children('strong').text((stepValue * 100).toFixed(0) + '%');
+        });
+    </script>
+    <script type="text/javascript" src="js/circleColor.js"></script>
+    <script type="text/javascript" src="js/circleSize.js"></script>
+    <script type="text/javascript" src="js/notifications.js"></script>
+    <script>
+        new Noty({
+            text: "Report created " + "09/09/2018 01:39:04",
+            type: 'notification',
+            theme: 'mint',
+            closeWith: ['click'],
+            progressBar: true,
+            timeout: 10000,
+            animation: {
+                open: 'animated bounceInRight',
+                close: 'animated bounceOutRight',
+                easing: 'swing',
+            }
+        }).show();
+    </script>
+
+    <div class="table-title">
+        <h3></h3>
+    </div>
+
+    <table class="table-fill">
+        <thead>
+            <tr>
+                <th width="65%" class="text-left">Device</th>
+                <th width="35%" class="text-center">Status</th>
+            </tr>
+        </thead>
+        <tbody class="table-hover">
+					
+            <tr>
+							<td onClick="window.open('http://www.github.com:443')";class="text-left">GitHub:443</td>
+							
+							<td><div class="led-green"></div></td>
+							
+						</tr>
+					
+            <tr>
+							<td onClick="window.open('http://www.reddit.com:443')";class="text-left">Reddit:443</td>
+							
+							<td><div class="led-green"></div></td>
+							
+						</tr>
+					
+            <tr>
+							<td onClick="window.open('http://www.google.com:80')";class="text-left">Google:80</td>
+							
+							<td><div class="led-green"></div></td>
+							
+						</tr>
+					
+            <tr>
+							<td onClick="window.open('http://www.apple.com:80')";class="text-left">www.apple.com:80</td>
+							
+							<td><div class="led-green"></div></td>
+							
+						</tr>
+					
+			  </tbody>
+    </table>
+</body>
+
+</html>

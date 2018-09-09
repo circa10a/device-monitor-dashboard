@@ -1,0 +1,22 @@
+[
+    {
+        "url": "www.github.com",
+        "port": 443,
+        "alias": "GitHub"
+    },
+    {
+        "url": "www.reddit.com",
+        "port": 443,
+        "alias": "Reddit"
+    },
+    {
+        "url": "www.google.com",
+        "port": 80,
+        "alias": "Google"
+    },
+    {
+        "url": "www.apple.com",
+        "port": 80,
+        "alias": null
+    }
+]
