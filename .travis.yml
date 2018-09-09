@@ -3,10 +3,6 @@ language: python
 services:
 - docker
 
-python:
-  - "2.7"
-  - "3.6"
-
 script:
   - pip install -r requirements.txt
   - python report.py
