@@ -1,4 +1,4 @@
-# Device-Monitor-Dashboard
+# device-monitor-dashboard
 [![Build Status](https://travis-ci.org/circa10a/Device-Monitor-Dashboard.svg?branch=master)](https://travis-ci.org/circa10a/Device-Monitor-Dashboard)
 [![Docker Repository on Quay](https://quay.io/repository/circa10a/device-monitor-dashboard/status "Docker Repository on Quay")](https://quay.io/repository/circa10a/device-monitor-dashboard)
 [![Docker Automated buil](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/circa10a/device-monitor-dashboard/)
