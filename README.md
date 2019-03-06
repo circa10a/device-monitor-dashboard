@@ -15,7 +15,7 @@ Supports:
 
 
 ### Live Demo:
-[100% Devices Up](http://caleblemoine.me/monitor/) / [Failing Devices](http://caleblemoine.me/monitor/fail)
+[100% Devices Up](http://caleblemoine.dev/monitor/) / [Failing Devices](http://caleblemoine.dev/monitor/fail)
 
 
 ## Changelog
