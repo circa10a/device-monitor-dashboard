@@ -5,7 +5,7 @@
 [![](https://images.microbadger.com/badges/image/circa10a/device-monitor-dashboard.svg)](https://microbadger.com/images/circa10a/device-monitor-dashboard "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/circa10a/device-monitor-dashboard.svg)](https://microbadger.com/images/circa10a/device-monitor-dashboard "Get your own version badge on microbadger.com")
 
-Python script to generate material design html report of devices' online/offline status. A cheap/fun reporting solution.
+Python script to generate html report of devices' online/offline status. A cheap/fun reporting solution.
 This can be used for for servers, networking equipment, IOT devices, anything that's "pingable".
 Supports:
 
