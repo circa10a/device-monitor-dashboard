@@ -20,6 +20,7 @@ Supports:
 
 ## Changelog
 ---
+ - (5/16/2020) Update to python 3
  - (9/9/2018) Replace txt file format with json
  - (1/30/2018) Replace trunicates with jinja templating engine
  - (1/27/2018) Added python 3 compatibility
@@ -44,8 +45,7 @@ Supports:
 bash -c "$(curl -sL https://raw.githubusercontent.com/circa10a/Device-Monitor-Dashboard/master/install.sh)"
 ```
 
-- Nginx and Python required for Easy Install
-- Tested with Ubuntu 16.04.3 / Nginx 1.10.3 / Python 2.7
+- Ubuntu, Nginx, Python 3 required for Easy Install
 - Follow the prompts!
 
 ## Usage
@@ -79,7 +79,7 @@ bash -c "$(curl -sL https://raw.githubusercontent.com/circa10a/Device-Monitor-Da
  ```
 
 - Update the python script (variable at the top) with the path/name of your file with hostnames and output file path.(default hostnames= `./hostnames.json   default output= `./index.html`)
-- Run `python report.py`
+- Run `python3 report.py`
 - Ensure that you place the output HTML file in the project directory so it can find its web dependencies
   - Page automcatically reloads every 60 seconds.
 

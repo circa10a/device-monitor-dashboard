@@ -15,6 +15,7 @@ env = Environment(
 
 template = env.get_template('template.html.j2')
 
+
 def pinghost(hostname):
     # Check os type to determine which ping command to use
     os_type = platform.platform()
@@ -23,6 +24,7 @@ def pinghost(hostname):
     else:
         response = os.system("ping -c 1 {0}".format(hostname))
     return True if response == 0 else False
+
 
 def checksock(hostname, port):
     if not isinstance(port, int):
@@ -38,6 +40,7 @@ def checksock(hostname, port):
         print('%s failed on port: %s' % (hostname, str(port)))
         return False
 
+
 def parsehost(hostfile):
     servers = []
     with open(hostfile, "r") as f:
@@ -52,6 +55,7 @@ def parsehost(hostfile):
                 else:
                     servers.append({"hostname": item["url"], "port": item["port"], "name": item["url"]})
     return servers
+
 
 def createhtml(output_file_name, host_dict):
     refresh_rate = "60"
@@ -76,6 +80,7 @@ def createhtml(output_file_name, host_dict):
                     server_total=server_total,
                     host_dict=host_dict).dump('index.html')
 
+
 def main():
     names_list = "hostnames.json"
     # put the path that you would like the report to be written to
@@ -92,5 +97,8 @@ def main():
             h.update(status="down")
     createhtml(output_file_name, hosts)
 
+
 if __name__ == "__main__":
+    print(f"[INFO] {datetime.datetime.now().strftime('%b %d %Y %H:%M:%S')} Checking hosts...")
     main()
+    print(f"[INFO] {datetime.datetime.now().strftime('%b %d %Y %H:%M:%S')} Finished checking hosts")

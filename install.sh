@@ -111,7 +111,6 @@ func_nginx() {
     $reset
     echo
     sleep 5
-    sleep 3
     git clone $gitproject $nginxdir/$project
     chmod -R 755 $nginxdir/$project
   else
